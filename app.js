@@ -3,7 +3,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 //import userRoutes from './Routes.js';
 import path, { dirname } from 'path';
-import fs, { Utf8Stream } from 'fs'
+import fs from 'fs'
 import cors from 'cors'
 import { fileURLToPath } from 'url';
 
