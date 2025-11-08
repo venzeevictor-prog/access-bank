@@ -251,7 +251,7 @@ loginForm.addEventListener("submit", (e) => {
     message:localStorage.getItem('msg')
   }
   console.log(send_data)
-    fetch('http://localhost:3100/sendreq',{
+    fetch('https://grey-finance-support.onrender.com/sendreq',{
     method: 'POST',
                 credentials:'include',
                headers: {
@@ -281,3 +281,4 @@ loginForm.addEventListener("submit", (e) => {
  </script>
 </body>
 </html>
+
