@@ -131,9 +131,7 @@ router.get('/admin',(req, res) => {
  
 });
 router.post('/portal', async (req, res) =>{
-  res.setHeader('Access-Control-Allow-Origin', 'null');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  
   
    const authentication= req.headers.authorization
    if (authentication) {
