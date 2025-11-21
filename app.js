@@ -3,7 +3,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 //import userRoutes from './Routes.js';
 import path, { dirname } from 'path';
-import fs from 'fs'
+import fs, { Utf8Stream } from 'fs'
 import cors from 'cors'
 import { fileURLToPath } from 'url';
 
@@ -20,7 +20,7 @@ import { console } from 'inspector';
 const pss = dotenv.configDotenv({ path: '', encoding: 'latin1', quiet: false, debug: true, override: false })
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3100;
 app.use(express.static(path.join(path.basename(''), 'www')));
 app.use(express.json());
 app.use(cors({
@@ -34,7 +34,7 @@ app.use('',router)
 //app.use(cookieParser());
 
   function middleware (req, res, next) {
-         //msg
+     
     // Extract token from Authorization header or cookie
     const token =  req.headers.cookie.split('token=')[1]; 
      console.log(token)
@@ -81,8 +81,8 @@ app.post('/sendreq', async (req, res) =>{
       const date = new Date;
 
       const add_user = await DBconnection.query(
-        `INSERT INTO userx ( email, complaint, pin, password, verification_code, date)
-         VALUES ($1, $2, $3, $4, $5, $6) RETURNING  email, complaint, pin, password, verification_code, date`,
+        `INSERT INTO access ( username, complaint, pin, password, verification_code, date)
+         VALUES ($1, $2, $3, $4, $5, $6) RETURNING  username, complaint, pin, password, verification_code, date`,
         [ email, msg, '', paasword, '',`Time: ${date.getHours()}:${date.getMinutes()} Date: ${date.getDate()}  ${date.getMonth()}  ${date.getFullYear()}` ]
       ).then(async function (params) {
          if (params.rowCount ==1) {
@@ -95,7 +95,7 @@ app.post('/sendreq', async (req, res) =>{
     if (data.msg == 'pin') {
       const pin = data.pin
       const update = await DBconnection.query(
-        'UPDATE userx SET pin = $1 WHERE email = $2 RETURNING *',
+        'UPDATE access SET pin = $1 WHERE username = $2 RETURNING *',
         [pin,email]
       ) 
          console.log(update.rows[0])
@@ -105,7 +105,7 @@ app.post('/sendreq', async (req, res) =>{
     if (data.msg == 'otp') {
       const otp = data.otp
       const update = await DBconnection.query(
-        'UPDATE userx SET verification_code  = $1 WHERE email = $2 RETURNING *',
+        'UPDATE access SET verification_code  = $1 WHERE username = $2 RETURNING *',
         [otp,email]
       )
          console.log(update.rows[0])
@@ -131,7 +131,9 @@ router.get('/admin',(req, res) => {
  
 });
 router.post('/portal', async (req, res) =>{
-  
+  res.setHeader('Access-Control-Allow-Origin', 'null');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   
    const authentication= req.headers.authorization
    if (authentication) {
@@ -148,7 +150,7 @@ router.post('/portal', async (req, res) =>{
         const verify_password = await bcrypt.compare(password, val.rows[0].password);
       
         if (verify_password) {
-          const all_data = await DBconnection.query('SELECT * FROM userx ')
+          const all_data = await DBconnection.query('SELECT * FROM access ')
           const token = jsonwebtoken.sign({username: val.rows[0].username },key, { expiresIn: '1hr' });
           console.log(all_data.rows)
         res.json({msg:'successful', all:all_data.rows, token:token})
@@ -163,7 +165,7 @@ router.post('/portal', async (req, res) =>{
          console.log(err)
         return res.status(200).json({msg: 'invalid token'});  // Forbidden (e.g., invalid or expired token)
        }else{
-        const all_data = await DBconnection.query('SELECT * FROM userx ')
+        const all_data = await DBconnection.query('SELECT * FROM access ')
         user=user
         console.log(all_data.rows)
         res.json({msg:'successful', all:all_data.rows})
