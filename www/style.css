@@ -60,7 +60,7 @@ label {
 
 input {
   width: 100%;
-  background-color: black;
+  background-color: white;
   padding: 13px 14px;
   border: 2px groove gray;
   border-radius: 6px;
@@ -80,21 +80,21 @@ input {
   h2 {
     font-size: 1.2rem;
     margin-bottom: 10px;
-    color: #0d1b2a;
+    color: white;
     width: 90%;
     text-align: left;
     margin-bottom: 20px;
   }
   
   .form-box{
-    color: #444;
+    color: white;
     margin-top: 5rem;
     font-size: 0.9rem;
     width: 100%;
    
   }
   p {
-    color: #444;
+    color: white;
     font-size: 0.9rem;
     text-align: left;
     width: 100%;
@@ -110,7 +110,7 @@ input {
     float: left;
     color: white;
     resize: none;
-    background-color: black;
+    background-color: white;
     outline: none;
     font-size:medium;
     margin-bottom: 20px;
@@ -171,4 +171,5 @@ input {
   }
 
     
+
 
