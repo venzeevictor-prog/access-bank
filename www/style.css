@@ -10,10 +10,12 @@
   body {
     display: flex;
     justify-content: center;
-    background-color: #0d1b2a;
+    background-image: url('uu.jpg');
     align-items: center;
    overflow-x: hidden;
    overflow-y: hidden;
+      background-repeat:space;
+   background-size:cover;
     height: 100vh;
 
   }
@@ -22,9 +24,8 @@
     text-align: center;
     max-width: 480px;
     width: 90%;
-   background-image: url('./logo.jpg');
-   background-repeat:space;
-   background-size:cover;
+   
+   
     padding: 40px 20px;
     border-radius: 8px;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); */
@@ -168,4 +169,5 @@ input {
       font-size: 1.3rem;
     }
   }
+
     
