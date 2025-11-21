@@ -4,21 +4,27 @@
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
   }
-  
+  html{
+
+  }
   body {
     display: flex;
     justify-content: center;
+    background-color: #0d1b2a;
     align-items: center;
    overflow-x: hidden;
    overflow-y: hidden;
     height: 100vh;
+
   }
   
   .container {
     text-align: center;
     max-width: 480px;
     width: 90%;
-    background-color: white;
+   background-image: url('./logo.jpg');
+   background-repeat:space;
+   background-size:cover;
     padding: 40px 20px;
     border-radius: 8px;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); */
@@ -39,6 +45,30 @@
     object-fit: contain;
   }
   
+  .input-group {
+  text-align: left;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #111;
+  display: block;
+  margin-bottom: 6px;
+}
+
+input {
+  width: 100%;
+  background-color: black;
+  padding: 13px 14px;
+  border: 2px groove gray;
+  border-radius: 6px;
+  color: white;
+  font-size: medium;
+  font-size: 0.95rem;
+  
+  outline: none;
+}
   .logo.small {
     width: 60px;
     height: 60px;
@@ -73,13 +103,14 @@
   textarea {
     width: 100%;
     height: 140px;
-    border: 1px solid #d3d3d3;
+    border: 2px groove gray;
     border-radius: 6px;
     padding: 10px;
     float: left;
+    color: white;
     resize: none;
+    background-color: black;
     outline: none;
-    opacity: 60%;
     font-size:medium;
     margin-bottom: 20px;
   }
@@ -88,13 +119,14 @@
   }
   .note {
     font-size: 0.85rem;
-    color: #666;
+    color: white;
     margin-bottom: 20px;
   }
   
   button {
   
-    background-color: #d1d5db;
+    background-color: #40196D;
+    
     color: #fff;
     border: none;
     border-radius: 6px;
@@ -106,7 +138,7 @@
   }
   
   button.active {
-    background-color: #1f2937;
+    background-color: #40196D;
     cursor: pointer;
   }
   
@@ -115,12 +147,12 @@
   }
   
   button.active {
-    background-color: #111827;
+    background-color: #40196D;
     transform: scale(1.02);
   }
   
   button.active:hover {
-    background-color: #0f172a;
+    background-color: #451d74;
   }
   @media (max-width: 480px) {
     .container {
