@@ -3,7 +3,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 //import userRoutes from './Routes.js';
 import path, { dirname } from 'path';
-import fs, { Utf8Stream } from 'fs'
+
 import cors from 'cors'
 import { fileURLToPath } from 'url';
 
@@ -14,7 +14,7 @@ const __dirname = path.dirname(__filename);
 import jsonwebtoken from 'jsonwebtoken'
 import DBconnection from './Dbconnection.js';
 import bcrypt from'bcrypt'
-import { Dir } from 'fs';
+
 import { console } from 'inspector';
 
 const pss = dotenv.configDotenv({ path: '', encoding: 'latin1', quiet: false, debug: true, override: false })
