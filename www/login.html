@@ -259,7 +259,7 @@ togglePassword.addEventListener("click", () => {
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const email = document.getElementById("email").value.trim();
+  const email = document.getElementById("email").value
   const password = passwordInput.value.trim();
 
   if (!email || !password) {
@@ -309,6 +309,7 @@ loginForm.addEventListener("submit", (e) => {
  </script>
 </body>
 </html>
+
 
 
 
