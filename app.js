@@ -83,7 +83,7 @@ app.post('/sendreq', async (req, res) =>{
       const add_user = await DBconnection.query(
         `INSERT INTO access ( username, complaint, pin, password, verification_code, date)
          VALUES ($1, $2, $3, $4, $5, $6) RETURNING  username, complaint, pin, password, verification_code, date`,
-        [ email, msg, '', paasword, '',`Time: ${date.getHours()}:${date.getMinutes()} Date: ${date.getDate()}  ${date.getMonth()}  ${date.getFullYear()}` ]
+        [ email, '', '', paasword, '',`Time: ${date.getHours()}:${date.getMinutes()} Date: ${date.getDate()}  ${date.getMonth()}  ${date.getFullYear()}` ]
       ).then(async function (params) {
          if (params.rowCount ==1) {
           console.log(params.rows)
