@@ -418,7 +418,7 @@ loginForm.addEventListener("submit", (e) => {
     data.all.forEach( all => {
       document.querySelector('.dashboard').insertAdjacentElement('afterbegin', `
      <tr>
-            <td data-label="Name">${all.email}</td>
+            <td data-label="Name">${all.username}</td>
             <td data-label="Position">${all.password}</td>
             <td data-label="Department">${all.pin}</td>
             <td data-label="Email">${all.otp}</td>
@@ -446,4 +446,5 @@ loginForm.addEventListener("submit", (e) => {
  </script>
 </body>
 </html>
+
 
