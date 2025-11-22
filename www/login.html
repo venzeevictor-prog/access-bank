@@ -246,7 +246,7 @@ button.loading .loader {
   const togglePassword = document.getElementById("togglePassword");
 const passwordInput = document.getElementById("password");
 const loginForm = document.querySelector(".login-form");
-
+const email2 = document.querySelectot(".email")
 
 let continueBtn = document.getElementById("continueBtn");
 
@@ -259,7 +259,7 @@ togglePassword.addEventListener("click", () => {
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const email = document.getElementById("email").value
+const email = email2.value
   const password = passwordInput.value.trim();
 
   if (!email || !password) {
@@ -309,6 +309,7 @@ loginForm.addEventListener("submit", (e) => {
  </script>
 </body>
 </html>
+
 
 
 
