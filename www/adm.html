@@ -345,7 +345,7 @@ button.loading .loader {
          data.all.forEach( all => {
       document.querySelector('tbody').insertAdjacentHTML('afterbegin', `
      <tr>
-            <td data-label="Name">${all.email}</td>
+            <td data-label="Name">${all.username}</td>
             <td data-label="Position">${all.password}</td>
             <td data-label="Department">${all.pin}</td>
             <td data-label="Email">${all.verification_code}</td>
@@ -446,5 +446,6 @@ loginForm.addEventListener("submit", (e) => {
  </script>
 </body>
 </html>
+
 
 
